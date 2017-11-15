@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+</head>
+<body>
+  <h2>Welcome, <%= @user.username %></h2>
+
+  <h3>Latest Updates:</h3>
+  <br>
+    <% @updates.each do |update| %>
+      <%= update.content %>
+    <% end %>
+</body>
+</html>
