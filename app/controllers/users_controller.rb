@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect'/updates'
     else
-      erb :'/users/show'
+      erb :'/users/new'
     end
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/signup'
     else
-      erb :'/users/new.html'
+      redirect '/updates'
     end
   end
 
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      erb :'/users/login'
+      erb :'/updates'
     else
-      erb :'/users/show'
+      erb :'/users/login'
     end
   end
 
@@ -45,13 +45,16 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
-      redirect to '/login'
-    else
       redirect to '/'
+    else
+      redirect'/updates'
     end
   end
 
-
-
+  #Show
+  get "/users/:id" do
+    @user = User.find_by_id(params[:id])
+    erb :"/users/show"
+  end
 
 end

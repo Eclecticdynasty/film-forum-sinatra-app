@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User</title>
+  <title>Profile</title>
 </head>
 <body>
-  <h2><%= @user.username %> Movies</h2>
-    <% @user.movies.each do |movie| %>
-      <%= movie.name %>
+  <h2><%= @user.username %> Updates</h2>
+    <% @user.updates.each do |update| %>
+      <%= update.content %>
    <% end %>
 </body>
 </html>

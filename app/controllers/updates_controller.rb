@@ -13,15 +13,23 @@ class UpdatesController < ApplicationController
 
   #Create
   get "/updates/new" do
-    erb :"/updates/new.html"
+    if logged_in?
+      erb :"/updates/new"
+    else
+      
+    end
+    
   end
 
   # POST: /updates
   post "/updates" do
     if params[:content] == ""
-    redirect "/updates"
+    redirect "/updates/new"
+  else
+    @update = Update.create(:content => params[:content])
+    current_user.updates << @update
+    end
   end
-
   # GET: /updates/5
   get "/updates/:id" do
     erb :"/updates/show.html"
