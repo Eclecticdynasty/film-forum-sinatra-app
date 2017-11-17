@@ -6,20 +6,31 @@ class MoviesController < ApplicationController
     erb :"/movies/index"
   end
 
-  # GET: /movies/new
+  # new
   get "/movies/new" do
-    erb :"/movies/new.html"
+    @genres = Genre.all
+    erb :"/movies/new"
   end
 
-  # POST: /movies
+    get '/movies/:id' do
+     @movie = Movie.find_by_id(params[:id])
+     erb :"/movies/show"
+   end
+
   post "/movies" do
-    redirect "/movies"
+    if logged_in?
+      if params[:name] == "" 
+        redirect '/movies/new'
+      else
+        @movie = Movie.new
+        @movie.name = params[:name]
+        @movie.user = current_user
+        @movie.genre_id = params[:genre_id]
+        @movie.save
+      end
+    end
   end
 
-  # GET: /movies/5
-  get "/movies/:id" do
-    erb :"/movies/show.html"
-  end
 
   # GET: /movies/5/edit
   get "/movies/:id/edit" do

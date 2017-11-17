@@ -1,0 +1,26 @@
+<h2><label>Movie</label></h2>
+<p><%= @movie.name %></p>
+
+<% if @movie.user == current_baker %>
+  <form method="get" action="/movies/<%= @movie.id %>/edit">
+    <button type="submit">Edit zmovie</button>
+  </form>
+<br>
+<% end %>
+
+<% if @movie.user == current_user %>
+  <form action="/recipes/<%= @movie.id %>/delete" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <p><input type="submit" value="Delete Movie"></p>
+  </form>
+<% end %>
+
+<form method="get" action="/users/show">
+  <button type="submit">My Movies</button>
+</form>
+<br>
+
+<form method="get" action="/movies">
+  <button type="submit">All Movies</button>
+</form>
+<br>
