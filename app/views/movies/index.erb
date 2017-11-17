@@ -1,0 +1,24 @@
+<p><h2>Movies</h2></p>
+
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <a href="/movies/<%= movie.id %>">
+        <%= movie.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<form method="get" action="/users/show">
+    <button type="submit">Movies</button>
+</form>
+<br>
+<form method="get" action="/genres">
+    <button type="submit">View by Genre</button>
+</form>
+<br>
+<form method="get" action="/logout">
+    <button type="submit">Log Out</button>
+</form>

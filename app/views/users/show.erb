@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Profile</title>
-</head>
-<body>
-  <h2><%= @user.username %> Updates</h2>
-    <% @user.updates.each do |update| %>
-      <%= update.content %>
-   <% end %>
-</body>
-</html>
+<p><h2>Your Movies:</h2></p>
+
+<ul>
+  <% current_user.movies.each do |movie| %>
+    <li>
+      <a href="/movies/<%= movie.id %>">
+        <%= movie.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<br>
+
+<form method="get" action="/movies/new">
+    <button type="submit">New Movie</button>
+</form>
+<br>
+<form method="get" action="/movies">
+    <button type="submit">Explore Movies</button>
+</form>
+<br>
+<form method="get" action="/logout">
+    <button type="submit">Log Out</button>
+</form>

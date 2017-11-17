@@ -5,7 +5,7 @@ class UpdatesController < ApplicationController
     if logged_in?
       @user = current_user
       @updates = Update.all
-      erb :'/updates/show'
+      erb :'/updates/index'
     else
       redirect '/login'
     end
@@ -16,37 +16,63 @@ class UpdatesController < ApplicationController
     if logged_in?
       erb :"/updates/new"
     else
-      
+      redirect '/login'
     end
-    
   end
 
-  # POST: /updates
   post "/updates" do
     if params[:content] == ""
     redirect "/updates/new"
   else
     @update = Update.create(:content => params[:content])
-    current_user.updates << @update
+    redirect to "/updates/#{@update.id}"
     end
   end
-  # GET: /updates/5
+
   get "/updates/:id" do
-    erb :"/updates/show.html"
+    if logged_in?
+      @update = Update.find_by_id(params[:id])
+      erb :"/updates/show"
+    else
+      redirect '/login'
+    end
   end
 
-  # GET: /updates/5/edit
+  # Edit
   get "/updates/:id/edit" do
-    erb :"/updates/edit.html"
+    @update = Update.find_by_id(params[:id])
+    if logged_in?
+      erb :"/updates/edit"
+    else
+      redirect '/login'
+    end
   end
 
-  # PATCH: /updates/5
   patch "/updates/:id" do
-    redirect "/updates/:id"
+    if params[:content] == ""
+      redirect '/updates/#{params[:id]/edit}'
+    else
+      @update = Update.find_by_id(params[:id])
+      @update.content = params[:content]
+      @update.save
+      redirect '/updates/#{@update.id}'
+    end
   end
 
-  # DELETE: /updates/5/delete
+  # DELETE
+
   delete "/updates/:id/delete" do
-    redirect "/updates"
+   if logged_in?
+      @update = Update.find_by_id(params[:id])
+      if @update.user_id == current_user.id
+        @update.delete
+        redirect to '/updates'
+      else
+        redirect to '/updates'
+      end
+    else
+      redirect to '/login'
+    end
   end
+
 end

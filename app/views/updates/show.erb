@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Profile</title>
-</head>
-<body>
-  <h2>Welcome, <%= @user.username %></h2>
+<p><%= @update.content %>
 
-  <h3>Latest Updates:</h3>
-  <br>
-    <% @updates.each do |update| %>
-      <%= update.content %>
-    <% end %>
-</body>
-</html>
+<form method="post" action="/tweets/<%=@update.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Update">
+</form>
+
+<a href="/updates/<%=@update.id%>/edit">Edit Update </a>
