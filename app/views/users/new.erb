@@ -4,6 +4,10 @@
   <title>Sign Up</title>
 </head>
 <body>
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
+    
   <h2>Sign Up:</h2>
 
   <form action="/signup" method="POST">

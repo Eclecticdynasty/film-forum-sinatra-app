@@ -4,6 +4,9 @@
   <title>Log In</title>
 </head>
 <body>
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
   <h2>Login:</h2>
 
   <form action="/login" method="POST">

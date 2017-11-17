@@ -1,5 +1,7 @@
+
+
 class UsersController < ApplicationController
-  enable :sessions
+  use Rack::Flash
 
   # Signup
   get "/signup" do
@@ -11,11 +13,15 @@ class UsersController < ApplicationController
   end
 
   post "/signup" do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-    if @user.save
-      session[:user_id] = @user.id
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:message] = "Must fill in all fields."
       redirect '/signup'
+    elsif User.find_by(:username => params[:username]) != nil
+      flash[:message] = "Username already registered."
+      redirect '/login'
     else
+      @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+      session[:user_id] = @user.id
       redirect '/updates'
     end
   end
@@ -31,11 +37,12 @@ class UsersController < ApplicationController
   end
 
     post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.find_by(:username => params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       redirect '/updates'
     else
+      flash[:message] = "Incorrect login details."
       redirect '/signup'
     end
   end
