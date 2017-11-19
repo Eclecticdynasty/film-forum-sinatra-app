@@ -1,8 +1,13 @@
-<p> Welcome <%= current_user.username %>
-<h2> Status Updates </h2>
 
-<% @updates.each do |update| %>
-  <div>
-    <%= update.content %>
-  </div>
-<% end %>
+<p><%= @update.content %>
+
+<form method="post" action="/updates/<%=@update.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Update">
+</form>
+
+<form method="post" action="/updates/<%=@update.id%>/edit">
+  <input id="hidden" type="hidden" name="_method" value="EDIT">
+  <input type="submit" value="Edit Update">
+</form>
+

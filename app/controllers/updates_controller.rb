@@ -1,11 +1,11 @@
 class UpdatesController < ApplicationController
-
+enable :sessions
   # GET: /updates
   get "/updates" do
     if logged_in?
       @user = current_user
       @updates = Update.all
-      erb :'/updates/index'
+      erb :'/updates/show'
     else
       redirect '/login'
     end
@@ -32,7 +32,7 @@ class UpdatesController < ApplicationController
   get "/updates/:id" do
     if logged_in?
       @update = Update.find_by_id(params[:id])
-      erb :"/updates/show"
+      erb :"/updates/index"
     else
       redirect '/login'
     end

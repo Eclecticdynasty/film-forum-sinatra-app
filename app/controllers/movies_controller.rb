@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  enable :sessions
   use Rack::Flash
 
   # index
