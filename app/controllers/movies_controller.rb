@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  use Rack::Flash
 
   # index
   get "/movies" do
@@ -31,19 +32,37 @@ class MoviesController < ApplicationController
     end
   end
 
-
-  # GET: /movies/5/edit
+  # edit
   get "/movies/:id/edit" do
-    erb :"/movies/edit.html"
+    @movie = Movie.find_by_id(params[:id])
+    @genres = Genre.all
+    if @movie.user == current_user
+      erb :"/movies/edit"
+    else
+      redirect "/movies/#{@movie.id}"
+    end
   end
 
   # PATCH: /movies/5
   patch "/movies/:id" do
-    redirect "/movies/:id"
+    if logged_in?
+      @movie = Movie.find_by_id(params[:id])
+      if @movie.user == current_user
+        @movie.update(params[:movie])
+        flash[:message] = "Movie added!"
+        redirect '/movies/#{@movie.id}'
+      else
+        flash[:message] = "Movie not saved!"
+        redirect '/movies'
+      end
+    else
+      flash[:message] = "Please log-in!"
+      redirect '/login'
+    end
   end
 
   # DELETE: /movies/5/delete
   delete "/movies/:id/delete" do
-    redirect "/movies"
+    
   end
 end

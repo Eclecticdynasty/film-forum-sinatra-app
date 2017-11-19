@@ -50,7 +50,7 @@ class UpdatesController < ApplicationController
 
   patch "/updates/:id" do
     if params[:content] == ""
-      redirect '/updates/#{params[:id]/edit}'
+      redirect '/updates/#{params[:id]}/edit'
     else
       @update = Update.find_by_id(params[:id])
       @update.content = params[:content]
@@ -62,17 +62,13 @@ class UpdatesController < ApplicationController
   # DELETE
 
   delete "/updates/:id/delete" do
-   if logged_in?
       @update = Update.find_by_id(params[:id])
-      if @update.user_id == current_user.id
+      if logged_in? && @update.user_id == current_user.id
         @update.delete
         redirect to '/updates'
       else
-        redirect to '/updates'
-      end
-    else
       redirect to '/login'
-    end
   end
+end
 
 end

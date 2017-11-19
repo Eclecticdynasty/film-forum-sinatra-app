@@ -1,0 +1,25 @@
+<h2>Update Movie:</h2>
+
+<form action="/movies/<%= @movie.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <p>
+    <p><label>Name:</label></p>
+    <p><input type="text" name="movie[name]" value="<%= @movie.name %>"></p>
+    <br>
+    <p><label>Genre:</label></p>
+    <select name="movie[genre_id]">
+    <% @genres.each do |genre| %>
+      <option value="<%= genre.id %>"><%= genre.name %></option>
+    <% end %>
+    </select>
+    <br>
+    <br>
+    <br>
+    <input type="submit" value="Save">
+  </p>
+
+</form>
+
+<form method="get" action="/users/show">
+  <button type="submit">My Movies</button>
+</form>

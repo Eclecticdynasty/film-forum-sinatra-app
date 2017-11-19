@@ -1,9 +1,9 @@
 <h2><label>Movie</label></h2>
 <p><%= @movie.name %></p>
 
-<% if @movie.user == current_baker %>
+<% if @movie.user == current_user %>
   <form method="get" action="/movies/<%= @movie.id %>/edit">
-    <button type="submit">Edit zmovie</button>
+    <button type="submit">Edit movie</button>
   </form>
 <br>
 <% end %>
