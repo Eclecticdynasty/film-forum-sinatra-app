@@ -5,7 +5,7 @@ enable :sessions
     if logged_in?
       @user = current_user
       @updates = Update.all
-      erb :'/updates/show'
+      erb :'/updates/updates'
     else
       redirect '/login'
     end
@@ -24,7 +24,7 @@ enable :sessions
     if params[:content] == ""
     redirect "/updates/new"
   else
-    @update = Update.create(:content => params[:content])
+    @update = current_user.updates.create(:content => params[:content])
     redirect to "/updates/#{@update.id}"
     end
   end
@@ -32,6 +32,7 @@ enable :sessions
   get "/updates/:id" do
     if logged_in?
       @update = Update.find_by_id(params[:id])
+      @user = @update.user
       erb :"/updates/index"
     else
       redirect '/login'

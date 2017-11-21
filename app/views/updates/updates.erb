@@ -1,0 +1,20 @@
+<p><h2>All Updates</h2></p>
+
+<ul>
+  <% @updates.each do |update| %>
+    <li>
+      <a href="/updates/<%= update.id %>">
+        <%= update.content %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<form method="get" action="/updates/show">
+    <button type="submit">View Your Updates</button>
+</form>
+<br>
+<form method="get" action="/logout">
+    <button type="submit">Log Out</button>
+</form>

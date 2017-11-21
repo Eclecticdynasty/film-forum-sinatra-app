@@ -51,7 +51,7 @@ class MoviesController < ApplicationController
       if @movie.user == current_user
         @movie.update(params[:movie])
         flash[:message] = "Movie added!"
-        redirect '/movies/#{@movie.id}'
+        redirect "/movies/#{@movie.id}"
       else
         flash[:message] = "Movie not saved!"
         redirect '/movies'
