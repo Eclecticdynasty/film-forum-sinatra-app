@@ -4,7 +4,8 @@
   <% @movies.each do |movie| %>
     <li>
       <a href="/movies/<%= movie.id %>">
-        <%= movie.name %>
+        <%= movie.title %>
+        <%= movie.director %>
       </a>
     </li>
   <% end %>

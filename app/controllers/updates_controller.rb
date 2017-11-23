@@ -32,7 +32,6 @@ enable :sessions
   get "/updates/:id" do
     if logged_in?
       @update = Update.find_by_id(params[:id])
-      @user = @update.user
       erb :"/updates/index"
     else
       redirect '/login'
@@ -56,7 +55,7 @@ enable :sessions
       @update = Update.find_by_id(params[:id])
       @update.content = params[:content]
       @update.save
-      redirect '/updates/#{@update.id}'
+      redirect "/updates/#{@update.id}"
     end
   end
 

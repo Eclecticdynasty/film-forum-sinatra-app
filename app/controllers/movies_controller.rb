@@ -25,7 +25,8 @@ class MoviesController < ApplicationController
         redirect '/movies/new'
       else
         @movie = Movie.new
-        @movie.name = params[:name]
+        @movie.title = params[:title]
+        @movie.director = params[:director]
         @movie.user = current_user
         @movie.genre_id = params[:genre_id]
         @movie.save
@@ -44,7 +45,7 @@ class MoviesController < ApplicationController
     end
   end
 
-  # PATCH: /movies/5
+  # PATCH
   patch "/movies/:id" do
     if logged_in?
       @movie = Movie.find_by_id(params[:id])
@@ -62,8 +63,14 @@ class MoviesController < ApplicationController
     end
   end
 
-  # DELETE: /movies/5/delete
+  # DELETE
   delete "/movies/:id/delete" do
-    
+   @movie = Movie.find_by_id(params[:id])
+    if logged_in? && @movie.user_id == current_user.id
+      @movie.delete
+      redirect "/users/#{@user.id}"
+    else
+      redirect '/login'
+    end
   end
 end

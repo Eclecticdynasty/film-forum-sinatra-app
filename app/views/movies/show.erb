@@ -1,5 +1,6 @@
 <h2><label>Movie</label></h2>
-<p><%= @movie.name %></p>
+<p><%= @movie.title %></p>
+<p><%= @movie.director %></p>
 
 <% if @movie.user == current_user %>
   <form method="get" action="/movies/<%= @movie.id %>/edit">
@@ -9,7 +10,7 @@
 <% end %>
 
 <% if @movie.user == current_user %>
-  <form action="/recipes/<%= @movie.id %>/delete" method="POST">
+  <form action="/movies/<%= @movie.id %>/delete" method="POST">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <p><input type="submit" value="Delete Movie"></p>
   </form>
