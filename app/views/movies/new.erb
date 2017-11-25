@@ -6,15 +6,33 @@
   <p><label>Director:</label></p>
   <p><input type="text" name="director"></p>
   <br>
-  <p><label>Choose Genre:</label></p>
+  <p>
+        <label for="genre">Genre
+        </label>
+      </p>
+      <p>
+        <select id="genre" name="genre" required="required">
+          <option value="Action">Action</option>
+          <option value="Adventure">
+            Adventure</option>
+          <option value="Comedy">
+            Comedy</option>
+          <option value="Documentary">
+            Documentary</option>
+          <option value="Drama">
+            Drama</option>
+            <option value="Fantasy">
+            Fantasy</option>
+          <option value="Horror">
+            Horror</option>
+          <option value="Musical">
+            Musical</option>
+          <option value="Romance">
+            Romance</option>
+          <option value="Thriller">
+            Suspense</option>
+        </select>
 
-  <select name="genre_id">
-    <% @genres.each do |genre| %>
-      <option value="<%= genre.id %>"><%= genre.name %></option>
-    <% end %>
-  </select>
-  <br>
-  <br>
   <br>
   <p><input type="submit" value="Save Movie"></p>
 
