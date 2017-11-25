@@ -1,5 +1,6 @@
-<p><h2>Your Movies:</h2></p>
+<h3> Welcome <%= current_user.username %>! </h3>
 
+<h2>Your Saved Movie List</h2>
 <ul>
   <% current_user.movies.each do |movie| %>
     <li>
@@ -16,6 +17,10 @@
 
 <form method="get" action="/movies/new">
     <button type="submit">New Movie</button>
+</form>
+<br>
+<form method="get" action="/updates">
+    <button type="submit">Explore Updates</button>
 </form>
 <br>
 <form method="get" action="/movies">

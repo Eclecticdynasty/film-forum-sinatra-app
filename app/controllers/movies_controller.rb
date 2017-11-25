@@ -68,7 +68,7 @@ class MoviesController < ApplicationController
    @movie = Movie.find_by_id(params[:id])
     if logged_in? && @movie.user_id == current_user.id
       @movie.delete
-      redirect "/users/#{@user.id}"
+      redirect "/movies/#{@movie.id}"
     else
       redirect '/login'
     end

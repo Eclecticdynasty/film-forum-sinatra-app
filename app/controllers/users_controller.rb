@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   get '/login' do
     if logged_in?
-      redirect'/updates'
+      redirect "/users/show"
     else
       erb :'/users/login'
     end
