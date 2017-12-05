@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
      erb :"/movies/show"
    end
 
+
   post "/movies" do
     if logged_in?
       if params[:name] == "" 

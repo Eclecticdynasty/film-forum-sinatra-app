@@ -1,5 +1,8 @@
 class UpdatesController < ApplicationController
+  
+
 enable :sessions
+
   # GET: /updates
   get "/updates" do
     if logged_in?
@@ -11,6 +14,7 @@ enable :sessions
     end
   end
 
+
   #Create
   get "/updates/new" do
     if logged_in?
@@ -20,7 +24,7 @@ enable :sessions
     end
   end
 
-  post "/updates" do
+   post "/updates" do
     if params[:content] == ""
     redirect "/updates/new"
   else
@@ -32,20 +36,21 @@ enable :sessions
   get "/updates/:id" do
     if logged_in?
       @update = Update.find_by_id(params[:id])
-      erb :"/updates/index"
+      erb :'/updates/index'
     else
       redirect '/login'
     end
   end
+  
 
   # Edit
   get "/updates/:id/edit" do
     @update = Update.find_by_id(params[:id])
-    if logged_in?
-      erb :"/updates/edit"
+    if @update.user == current_user
+      erb :'/updates/edit'
     else
-      redirect '/login'
-    end
+      redirect "/updates/#{@update.id}"
+   end
   end
 
   patch "/updates/:id" do
@@ -70,5 +75,4 @@ enable :sessions
       redirect to '/login'
   end
 end
-
 end
