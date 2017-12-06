@@ -1,28 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Sign Up</title>
-</head>
-<body>
+<div class="user-container">
+
+  <h1>Film Forum</h1>
+
+  <p class="flash_message">
   <% if flash.has?(:message) %>
     <%= flash[:message] %>
-    <% end %>
-    
+  <% end %>
+  </p>
+
   <h2>Sign Up:</h2>
+    <div class="user-content">
 
   <form action="/signup" method="POST">
+    <p>
     <label>Username:</label>
-      <input type="text" name="username">
-    <br>
-    <label>Email:</label>
-      <input type="text" name="email">
-      <br>
-    <label>Password:</label>
-      <input type="text" name="password">
-      <br>
-      <input type="submit" value="Sign Up">
-  </form>
+      <input type="username" id="username" name="username" required="required">
+    </p>
 
-</body>
-</html>
+    <p>
+    <label>Email:</label>
+      <input type="email" id="email" name="email" required="required">
+      </p>
+
+      <p>
+    <label>Password:</label>
+      <input type="password" id="password" name="password" required="required">
+      </p>
+
+      <button type="submit" value="Sign Up">Sign Up </button>
+  </form>
+    </div>
+</div>
+
 
