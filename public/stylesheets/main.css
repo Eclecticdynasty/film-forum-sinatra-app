@@ -17,8 +17,8 @@
   }
 
   h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    font-size: 3em;
+    
   }
 
   h2 {
@@ -27,40 +27,26 @@
 
   h3 {
     font-size: 18px;
-    line-height: 36px;
+  
   }
 
   p {
-    margin-bottom: 18px;
+    font-size: 20px;
   }
 
-  .main {
-    overflow: hidden;
-  }
+  input[type="text"] {
+  height: 60px;
+  width: 300px;
+  font-family: 'Oswald', sans-serif;
+}
 
-  .content {
-    float: center;
-    width: 60%; /* 480px / 800px */
-  }
-
-  .sidebar {
-    background: #eee;
-    border: 1px solid #ccc;
-    float: right;
-    padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-  }
-
-  .sidebar ul {
-    font-size: 14px;
-  }
 
   .user-container h1 {
   padding-top: 300px;
   }
 
 
-  .user-container{
+  .user-container {
     background: url(../images/film-background.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -78,15 +64,42 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
-    -o-box-sizing: border-box
+    -o-box-sizing: border-box;
   }
 
   .user-container h1, .user-container h2, .user-container h3, .user-container p, .user-container a, .user-container a:visited {
   color: #569db7;
   text-shadow: 3px 2px black;
   font-family: 'Raleway', sans-serif;
-}
-.user-content {
+  }
+
+  .user-content {
   margin-top: 50px;
+  }
+
+  .user-content h1{
+    padding-top: 300px;
+  }
+
+  .user-content input {
+  height: 30px;
+  width: 200px;
+  color: #AAA;
+  text-align: center;
+  font-size: 1rem;
+  border: 0;
 }
+
+  .user-showpage {
+  background-color: #eaf0f2;
+  text-align: center;
+  margin:  0 auto;
+  min-height: 100vh;
+  border: 10px solid;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  }
 
