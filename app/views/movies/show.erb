@@ -1,27 +1,32 @@
-<h2><label>Movie</label></h2>
-<p><%= @movie.title %></p>
-<p><%= @movie.director %></p>
+  <div class="movie-showpage">
 
-<% if @movie.user == current_user %>
-  <form method="get" action="/movies/<%= @movie.id %>/edit">
-    <button type="submit">Edit movie</button>
-  </form>
-<br>
-<% end %>
+    <div class="movie info">
 
-<% if @movie.user == current_user %>
-  <form action="/movies/<%= @movie.id %>/delete" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <p><input type="submit" value="Delete Movie"></p>
-  </form>
-<% end %>
+   <h2>Title: <%= @movie.title %></h2>
+    <h3>Director: <%= @movie.director %></h3> 
 
-<form method="get" action="/users/show">
-  <button type="submit">My Movies</button>
-</form>
-<br>
+    <% if @movie.user == current_user %>
+      <form method="get" action="/movies/<%= @movie.id %>/edit">
+        <button class="top" type="submit" value="Edit Movie">Edit movie</button>
+      </form>
+    <% end %>
 
-<form method="get" action="/movies">
-  <button type="submit">All Movies</button>
-</form>
-<br>
+    <% if @movie.user == current_user %>
+      <form action="/movies/<%= @movie.id %>/delete" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <button type="delete" type="submit" value="Delete Movie">Delete Movie</button>
+      </form>
+    <% end %>
+
+    <div class="movie route-links">
+    <form method="get" action="/users/show">
+      <button type="submit">My Movies</button>
+    </form>
+
+    <form method="get" action="/movies">
+      <button type="submit">All Movies</button>
+    </form>
+    <br>
+  </div>
+  </div>
+</div>

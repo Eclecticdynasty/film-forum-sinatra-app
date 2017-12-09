@@ -3,8 +3,8 @@
 <form action="/movies/<%= @movie.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <p>
-    <p><label>Name:</label></p>
-    <p><input type="text" name="movie[name]" value="<%= @movie.name %>"></p>
+    <p><label>Title:</label></p>
+    <input type="text" name="movie[title]" value="<%= @movie.title %>"
     <br>
     <p><label>Genre:</label></p>
     <select name="movie[genre_id]">
