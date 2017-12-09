@@ -74,8 +74,9 @@
 
   .user-showpage {
   background-color: #eaf0f2;
+  margin: 0 auto;
+  padding-top: 200px;
   text-align: center;
-  margin:  0 auto;
   min-height: 100vh;
   border: 10px solid;
   box-sizing: border-box;
@@ -100,17 +101,17 @@
   }
   .movie {
     border-radius: 5px;
-    padding: 20px;
+    padding: 30px;
     font-size: 150%;
   }
   .info {
     grid-column: 1 / span 3;
-    grid-row: 1;
+    grid-row: 1 ;
   }
  
   .route-links {
-    grid-column: 2;
-    grid-row: span 1 / span 3;
+    grid-column: 3 ;
+    grid-row: span 1 / span 2;
   }
 
   .movie-showpage button {
