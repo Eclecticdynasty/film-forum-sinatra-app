@@ -27,6 +27,13 @@
   font-size: 3em;
   }
 
+  .user-container h2 {
+    font-size: 2em;
+    color: #569db7;
+    text-shadow: 3px 2px black;
+    font-family: 'Raleway', sans-serif;
+  }
+
 
   .user-container {
     background: url(../images/film-background.jpg);
@@ -71,7 +78,7 @@
 
   }
 
-  .user-container h1, .user-container h2 {
+  .user-container h1 {
   color: #569db7;
   text-shadow: 4px 3px black;
   font-family: 'Raleway', sans-serif;
@@ -82,7 +89,10 @@
   }
 
   .user-content {
-  margin-top: 1em;
+  color: #569db7;
+  font-size: 18px;
+  text-shadow: 1px 1.5px black;
+  margin-top: 0.5em;
   }
 
   .user-content button {
