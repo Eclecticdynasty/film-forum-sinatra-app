@@ -25,7 +25,6 @@
 
   .user-container h1 {
   font-size: 3em;
-  padding-top: 300px;
   }
 
 
@@ -36,6 +35,7 @@
     -o-background-size: cover;
     background-size: cover;
     margin: 0 auto;
+    padding-top: 300px;
     text-align: center;
     border: 10px solid; 
     box-sizing: border-box;
@@ -49,15 +49,40 @@
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
   }
+  .login {
+    background: url(../images/film-background.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    padding-top: 300px;
+    border: 10px solid; 
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    line-height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
 
-  .user-container h1, .user-container h2, .user-container h3, .user-container p {
+  }
+
+  .user-container h1, .user-container h2 {
   color: #569db7;
   text-shadow: 4px 3px black;
   font-family: 'Raleway', sans-serif;
   }
+  .user-content h3 {
+    color: #569db7;
+    text-shadow: 3px 2px black;
+  }
 
   .user-content {
-  margin-top: 20px;
+  margin-top: 1em;
   }
 
   .user-content button {
@@ -68,13 +93,12 @@
     padding-top: 300px;
   }
 
-  .user-content input {
-  height: 30px;
-  width: 200px;
-  color: #AAA;
-  text-align: center;
-  font-size: 1rem;
-  border: 0;
+    .user-content input {
+    height: 10%;
+    width: 25%;
+    color: #AAA;
+    font-size: 1rem;
+    border: 0;
 }
 
   .user-showpage {
