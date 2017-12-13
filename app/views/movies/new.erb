@@ -1,44 +1,48 @@
-<h2>Create Movie:</h2>
+<div class="movie-newpage">
+  <h2>Create Movie:</h2>
 
+  <div class="movie-info">
+  <form action="/movies" method="POST">
+    <p><label>Title:</label></p>
+    <h3><input type="text" id="title" name="title" required="required" placeholder="Movie Title"></h3>
+    <p><label>Director:</label></p>
+    <p><input type="text" id="director" name="director" required="required" placeholder="Movie Director"></p>
+    
+    <p>
+          <label for="genre">Genre:
+          </label>
+        </p>
+        <p>
+          <select id="genre" name="genre" required="required">
+            <option value="Action">Action</option>
+            <option value="Adventure">
+              Adventure</option>
+            <option value="Comedy">
+              Comedy</option>
+            <option value="Documentary">
+              Documentary</option>
+            <option value="Drama">
+              Drama</option>
+              <option value="Fantasy">
+              Fantasy</option>
+            <option value="Horror">
+              Horror</option>
+            <option value="Musical">
+              Musical</option>
+            <option value="Romance">
+              Romance</option>
+            <option value="Thriller">
+              Suspense</option>
+          </select>
+        </p>
+      </div>
 
-<form action="/movies" method="POST">
-  <p><label>Title:</label></p>
-  <h3><input type="text" id="title" name="title" required="required" placeholder="Movie Title"></h3>
-  <p><label>Director:</label></p>
-  <p><input type="text" id="director" name="director" required="required" placeholder="Movie Director"></p>
-  
-  <p>
-        <label for="genre">Genre:
-        </label>
-      </p>
-      <p>
-        <select id="genre" name="genre" required="required">
-          <option value="Action">Action</option>
-          <option value="Adventure">
-            Adventure</option>
-          <option value="Comedy">
-            Comedy</option>
-          <option value="Documentary">
-            Documentary</option>
-          <option value="Drama">
-            Drama</option>
-            <option value="Fantasy">
-            Fantasy</option>
-          <option value="Horror">
-            Horror</option>
-          <option value="Musical">
-            Musical</option>
-          <option value="Romance">
-            Romance</option>
-          <option value="Thriller">
-            Suspense</option>
-        </select>
+    <br>
+    <p><input type="submit" value="Save Movie"></p>
 
-  <br>
-  <p><input type="submit" value="Save Movie"></p>
+  </form>
 
-</form>
-
-<form method="get" action="/users/show">
-    <button type="submit">My Movies</button>
-</form>
+  <form method="get" action="/users/show">
+      <button type="submit">My Movies</button>
+  </form>
+</div>

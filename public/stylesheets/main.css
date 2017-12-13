@@ -173,7 +173,29 @@
     -o-box-sizing: border-box;
   }
 
-
+  .movie-newpage {
+    background-color: #eaf0f2;
+    border: 10px solid;
+    min-height: 100vh;
+    padding-top: 50px;
+    padding-left: 500px;  
+    padding-bottom: 200px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+  }
+  .movie-newpage input[type="text"] {
+    height: 30px;
+    width: 40%;
+    font-size: 12px;
+    font-family: 'Oswald', sans-serif
+  }
+  
+  .movie-info {
+    padding: 20px;
+  }
 
 
 
