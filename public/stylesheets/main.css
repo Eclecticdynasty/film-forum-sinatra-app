@@ -24,6 +24,7 @@
 
 
   .user-container h1 {
+  font-size: 3em;
   padding-top: 300px;
   }
 
@@ -49,14 +50,18 @@
     -o-box-sizing: border-box;
   }
 
-  .user-container h1, .user-container h2, .user-container h3, .user-container p, .user-container a, .user-container a:visited {
+  .user-container h1, .user-container h2, .user-container h3, .user-container p {
   color: #569db7;
-  text-shadow: 3px 2px black;
+  text-shadow: 4px 3px black;
   font-family: 'Raleway', sans-serif;
   }
 
   .user-content {
-  margin-top: 50px;
+  margin-top: 20px;
+  }
+
+  .user-content button {
+    font-size: 12px;
   }
 
   .user-content h1{
