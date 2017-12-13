@@ -88,8 +88,8 @@
 
   .movie-showpage {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 100px 100px 100px;
+  grid-gap: 2%;
+  grid-template-columns: 32% 32% 32%;
   background-color: #eaf0f2;
   border: 10px solid;
   box-sizing: border-box;
@@ -105,11 +105,13 @@
     font-size: 150%;
   }
   .info {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 2;
     grid-row: 1 ;
   }
  
   .route-links {
+    text-align: center;
+    padding: 30px;
     grid-column: 3 ;
     grid-row: span 1 / span 2;
   }
@@ -119,7 +121,17 @@
   }
 
   .updates-showpage {
+    background-color: #eaf0f2;
+    margin: 0 auto;
+    padding-top: 200px;
+    border: 10px solid;
+    min-height: 100vh;
     text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
   }
 
 
