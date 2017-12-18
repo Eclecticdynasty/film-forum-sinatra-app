@@ -16,6 +16,11 @@
     font-weight: bold;
   }
 
+  li {
+    margin: 10px 0;
+
+  }
+
   input[type="text"] {
   height: 40px;
   width: 30%;
@@ -91,7 +96,7 @@
   .user-content {
   color: #569db7;
   font-size: 18px;
-  text-shadow: 1px 1.5px black;
+
   margin-top: 0.5em;
   }
 
@@ -128,7 +133,7 @@
   .movie-showpage {
   display: grid;
   grid-gap: 2%;
-  grid-template-columns: 32% 32% 32%;
+  grid-template-columns: 32% 32%;
   background-color: #eaf0f2;
   border: 10px solid;
   box-sizing: border-box;
@@ -144,14 +149,15 @@
     font-size: 150%;
   }
   .info {
+    padding-top: 100px
     grid-column: 1 / span 2;
     grid-row: 1 ;
   }
  
   .route-links {
     text-align: center;
-    padding: 30px;
-    grid-column: 3 ;
+    padding: 100px;
+    grid-column: 2 ;
     grid-row: span 1 / span 2;
   }
 

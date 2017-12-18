@@ -3,12 +3,11 @@
   <p><h1>Movies</h1></p>
 
   <div class="movie-list">
-    <ul>
+    <ul style="list-style-type: none">
       <% @movies.each do |movie| %>
         <li>
           <a href="/movies/<%= movie.id %>">
             <%= movie.title %>
-            <%= movie.director %>
           </a>
         </li>
       <% end %>
@@ -18,10 +17,6 @@
 
   <form method="get" action="/users/show">
       <button type="submit"> Saved Movies</button>
-  </form>
-  <br>
-  <form method="get" action="/genres">
-      <button type="submit">View by Genre</button>
   </form>
   <br>
   <form method="get" action="/logout">

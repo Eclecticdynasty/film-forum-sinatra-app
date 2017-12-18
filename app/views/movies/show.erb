@@ -5,6 +5,8 @@
    <h2>Title: <%= @movie.title %></h2>
     <h3>Director: <%= @movie.director %></h3> 
 
+    <br>
+
     <% if @movie.user == current_user %>
       <form method="get" action="/movies/<%= @movie.id %>/edit">
         <button class="top" type="submit" value="Edit Movie">Edit movie</button>
