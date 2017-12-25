@@ -1,17 +1,45 @@
+
+<div class="movie-editpage">
 <h2>Update Movie:</h2>
 
 <form action="/movies/<%= @movie.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <p>
     <p><label>Title:</label></p>
-    <input type="text" name="movie[title]" value="<%= @movie.title %>"
-    <br>
-    <p><label>Genre:</label></p>
-    <select name="movie[genre_id]">
-    <% @genres.each do |genre| %>
-      <option value="<%= genre.id %>"><%= genre.name %></option>
-    <% end %>
-    </select>
+    <input type="text" name="movie[title]" value="<%= @movie.title %>">
+  </p>
+
+  <p><label>Director:</label></p>
+  <input type="text" name="movie[director]" value="<%= @movie.director %>">
+  
+
+     <p>
+          <label for="genre">Genre:
+          </label>
+        </p>
+        <p>
+          <select id="genre" name="genre" required="required">
+            <option value="Action">Action</option>
+            <option value="Adventure">
+              Adventure</option>
+            <option value="Comedy">
+              Comedy</option>
+            <option value="Documentary">
+              Documentary</option>
+            <option value="Drama">
+              Drama</option>
+              <option value="Fantasy">
+              Fantasy</option>
+            <option value="Horror">
+              Horror</option>
+            <option value="Musical">
+              Musical</option>
+            <option value="Romance">
+              Romance</option>
+            <option value="Thriller">
+              Suspense</option>
+          </select>
+        </p>
     <br>
     <br>
     <br>
@@ -23,3 +51,4 @@
 <form method="get" action="/users/show">
   <button type="submit">My Movies</button>
 </form>
+</div>
