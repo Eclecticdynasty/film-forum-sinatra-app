@@ -269,6 +269,20 @@
     -o-box-sizing: border-box;
   }
 
+  .edit-update { 
+    background-color: #eaf0f2;
+    min-height: 100vh;
+    border: 10px solid;
+    padding-top: 50px;
+    padding-left: 500px;  
+    padding-bottom: 200px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+  }
+
   .new-update textarea[name="update"] {
     height: 50px;
     width: 40%;
