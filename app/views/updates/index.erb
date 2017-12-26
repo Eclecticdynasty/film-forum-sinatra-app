@@ -2,20 +2,19 @@
   <p> Welcome <%= current_user.username %> </p>
   <br>
     <h2>  Your Status Updates </h2>
+
     <div class="update-links">
-  
-
-
-  <ul>
+    <ul>
     <% current_user.updates.each do |update| %>
-      <li>
+    
         <a href="/updates/<%= update.id %>/edit">
           <%= update.content %>
         </a>
-      </li>
+      
     <% end %>
   </ul>
 
+<br>
   <form method="get" action="/updates/new">
       <button type="submit">Create New Update</button>
   </form>
