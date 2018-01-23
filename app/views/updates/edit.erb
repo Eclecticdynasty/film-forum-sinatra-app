@@ -1,5 +1,9 @@
 <div class="edit-update">
   <h2> Edit Update </h2>
+  <p class="flash_messsge">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 
   <form method="post" action="/updates/<%=@update.id%>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">

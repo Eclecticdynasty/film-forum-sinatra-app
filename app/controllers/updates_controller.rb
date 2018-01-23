@@ -1,6 +1,5 @@
 class UpdatesController < ApplicationController
   
-
 enable :sessions
 
   # GET: /updates
@@ -54,13 +53,16 @@ enable :sessions
   end
 
   patch "/updates/:id" do
-    if params[:content] == ""
-      redirect '/updates/#{params[:id]}/edit'
-    else
+    if logged_in?
       @update = Update.find_by_id(params[:id])
+      if @update.user == current_user
       @update.content = params[:content]
       @update.save
       redirect "/updates/#{@update.id}"
+    end
+  else
+    flash[:message] = "Please log-in!"
+    redirect '/login'
     end
   end
 

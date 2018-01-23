@@ -1,3 +1,4 @@
+
 # Film Forum
 
 This app was created with a film student in mind. You can create an account to store all of your favorite movies, view them by genre and share those movies with other film students. You can also create status updates about current movies you're watching and/or are looking forward to seeing.

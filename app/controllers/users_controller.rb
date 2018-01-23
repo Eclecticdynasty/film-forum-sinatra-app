@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   # Signup
   get "/signup" do
+    @duck = "quack"
     if logged_in?
       redirect "/users/#{@user.id}"
     else
@@ -16,9 +17,6 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       flash[:message] = "Must fill in all fields."
       redirect '/signup'
-    elsif User.find_by(:username => params[:username]) != nil
-      flash[:message] = "Username already registered."
-      redirect '/login'
     else
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
       session[:user_id] = @user.id

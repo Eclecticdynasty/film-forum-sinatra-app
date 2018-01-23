@@ -15,7 +15,7 @@
 
     <% if @movie.user == current_user %>
       <form action="/movies/<%= @movie.id %>/delete" method="POST">
-        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
         <button type="delete" type="submit" value="Delete Movie">Delete Movie</button>
       </form>
     <% end %>

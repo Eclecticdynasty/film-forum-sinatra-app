@@ -1,10 +1,18 @@
 <div class="movie-newpage">
   <h2>Create Movie:</h2>
+  
+  <p class="flash_message">
+      <% if flash.has?(:message) %>
+        <%= flash[:message] %>
+      <% end %>
+    </p>
 
   <div class="movie-info">
   <form action="/movies" method="POST">
+
     <p><label>Title:</label></p>
     <h3><input type="text" id="title" name="title" required="required" placeholder="Movie Title"></h3>
+    
     <p><label>Director:</label></p>
     <p><input type="text" id="director" name="director" required="required" placeholder="Movie Director"></p>
     

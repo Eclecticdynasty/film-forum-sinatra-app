@@ -1,6 +1,10 @@
 
 <div class="movie-editpage">
   <h2>Update Movie:</h2>
+  <p class="flash_messsge">
+  <% if flash.has?(:message) %>
+    <%= flash[:message] %>
+    <% end %>
 
     <form action="/movies/<%= @movie.id %>" method="POST">
         <input id="hidden" type="hidden" name="_method" value="patch">
