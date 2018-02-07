@@ -21,19 +21,17 @@ end
     if logged_in?
      if params[:title] == "" || params[:director] == ""
        redirect '/movies/new'
-     elsif current_user.movies.find_by(title: params[:title]) == nil
+     elsif @movie = Movie.find_by(title: params[:title])
+      flash[:message] = "Movie already exists."
+      else
       @movie = Movie.new
       @movie.title = params[:title]
       @movie.director = params[:director]
       @movie.user = current_user
       @movie.genre_id = params[:genre_id]
       @movie.save
-      redirect "/movies"
-      else
-        @movie = current_user.movies.find_by(title: params[:title])
-        flash[:message] = "Movie already exists."
-        redirect to 'movies/new'
       end
+      redirect "/movies/#{@movie.id}"
       end
   end
 
